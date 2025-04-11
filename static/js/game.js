@@ -29,10 +29,37 @@ function updateCookieImage() {
     }
 }
 
-document.getElementById('gyro').addEventListener('click', function() {
+// Function to create particle effects
+function createParticleEffect(x, y) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    document.body.appendChild(particle);
+
+    // Remove particle after animation
+    setTimeout(() => {
+        particle.remove();
+    }, 1000);
+}
+
+// Function to play Minecraft sound
+function playMinecraftSound() {
+    const sound = new Audio('static/minecraft_eat.mp3');
+    sound.play();
+}
+
+// Add click event listener to the gyro
+document.getElementById('gyro').addEventListener('click', function(event) {
     updateCookieHealth();
     document.getElementById('score').innerText = 'Score: ' + score;
     updateCookieImage();
+
+    // Trigger particle effect at click position
+    createParticleEffect(event.clientX, event.clientY);
+
+    // Play Minecraft sound
+    playMinecraftSound();
 });
 
 setInterval(function() {

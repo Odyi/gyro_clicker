@@ -119,3 +119,25 @@ button:hover {
     padding: 10px;
     font-size: 18px;
 }
+
+
+.particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('../images/gyroyum.png'); /* Path to your particle image */
+    background-size: cover;
+    animation: fall 1s linear;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(300px);
+        opacity: 0;
+    }
+}
