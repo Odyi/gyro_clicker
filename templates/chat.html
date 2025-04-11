@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('leaderboard') }}">Leaderboard</a>
+        <a href="{{ url_for('chat') }}">Chat</a>
+        {% if 'username' in session %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </nav>
+    <div class="container">
+        <h1>Chat</h1>
+        <form action="{{ url_for('chat') }}" method="post">
+            <textarea name="message" placeholder="Enter your message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div class="chat-messages">
+            {% for username, message, timestamp in chat_messages %}
+                <p><strong>{{ username }}</strong>: {{ message }} <em>({{ timestamp }})</em></p>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('index') }}">Back to Game</a>
+    </div>
+</body>
+</html>
