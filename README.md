@@ -33,6 +33,8 @@ gyro-cookie-clicker/
 │   ├── register.html    # Registreringsside
 │   ├── leaderboard.html # Poengtavle
 │   ├── chat.html        # Chat-side
+│   ├── logout.html  
+│ 
 │
 ├── static/              # Statisk innhold som CSS og bilder
 │   ├── styles.css       # CSS-filer for design
