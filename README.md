@@ -24,25 +24,36 @@ Gyro Cookie Clicker er et læringsprosjekt som kombinerer enkel spillutvikling m
 ## Struktur
 Prosjektet består av følgende komponenter:
 ```
-gyro-cookie-clicker/
+GYRO_CLICKER/
 │
-├── app.py               # Hovedfil for Flask-applikasjonen
-├── templates/           # HTML-filer for frontend
-│   ├── index.html       # Hovedside
-│   ├── login.html       # Innloggingsside
-│   ├── register.html    # Registreringsside
-│   ├── leaderboard.html # Poengtavle
-│   ├── chat.html        # Chat-side
-│   ├── logout.html  
-│ 
+├── static/                # Mappen for statiske filer som CSS, bilder og JavaScript
+│   ├── css/               # CSS-filer for styling
+│   │   └── styles.css     # Hovedstilark for prosjektet
+│   │
+│   ├── images/            # Bilder og ikoner brukt i spillet
+│   │   ├── criticalhpgyro.svg  # SVG-bilde for kritisk HP
+│   │   ├── gyro.svg           # SVG-bilde for gyro-cookie
+│   │   ├── gyrofirstbite.svg  # SVG-bilde for første bite av gyro
+│   │   ├── gyroyum.png        # PNG-bilde for en "yum"-effekt
+│   │   ├── halfgyro.svg       # SVG-bilde for halv gyro
+│   │   └── lowhpgyro.svg      # SVG-bilde for lav HP
+│   │
+│   ├── js/                # JavaScript-filer for spilllogikk
+│   │   ├── game.js        # Hoved-JavaScript-fil for spillfunksjonalitet
+│   │   └── minecraft_eat.mp3  # Lydfil for en spiseeffekt
 │
-├── static/              # Statisk innhold som CSS og bilder
-│   ├── styles.css       # CSS-filer for design
-│   ├── cookie.png       # Bilder brukt i spillet
+├── templates/             # Mappen for HTML-maler brukt av Flask
+│   ├── chat.html          # HTML-mal for chat-siden
+│   ├── index.html         # HTML-mal for hovedsiden
+│   ├── leaderboard.html   # HTML-mal for poengtavle
+│   ├── login.html         # HTML-mal for innlogging
+│   ├── logout.html        # HTML-mal for utlogging
+│   └── register.html      # HTML-mal for registrering
 │
-├── gyro_clicker.db      # SQLite-database
-├── README.md            # Dokumentasjon
-└── requirements.txt     # Nødvendige Python-pakker
+├── app.py                 # Hovedfil for Flask-applikasjonen
+├── gyro_clicker.db        # SQLite-database for brukere, poeng og meldinger
+├── requirements.txt       # Liste over nødvendige Python-avhengigheter
+└── .gitattributes         # Git-konfigurasjon for spesifikke filtyper
 ```
 
 ---
