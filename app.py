@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 
 app = Flask(__name__)
@@ -37,10 +38,10 @@ def login():
         password = request.form['password']
         conn = sqlite3.connect('gyro_clicker.db')
         c = conn.cursor()
-        c.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password))
+        c.execute('SELECT password FROM users WHERE username = ?', (username,))
         user = c.fetchone()
         conn.close()
-        if user:
+        if user and check_password_hash(user[0], password):  # Verify hashed password
             session['username'] = username
             return redirect(url_for('index'))
         else:
@@ -52,9 +53,10 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        hashed_password = generate_password_hash(password)  # Hash the password
         conn = sqlite3.connect('gyro_clicker.db')
         c = conn.cursor()
-        c.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
+        c.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, hashed_password))
         conn.commit()
         conn.close()
         return redirect(url_for('login'))
