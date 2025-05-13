@@ -222,4 +222,4 @@ pip install -r requirements.txt
 
 ---
 
-Med denne dokumentasjonen har du alt du trenger for å forstå, bruke og videreutvikle prosjektet Gyro Cookie Clicker. Lykke til!
+Med denne dokumentasjonen har du alt du trenger for å forstå, bruke og videreutvikle prosjektet Gyro Cookie Clicker. Gleder meg å se prosjektene deres!
