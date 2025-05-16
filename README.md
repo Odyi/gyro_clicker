@@ -95,7 +95,7 @@ GYRO_CLICKER/
    - Logg inn for å få tilgang til spillet og chattefunksjonen.
 
 2. **Klikkespill**:
-   - Klikk på cookien for å tjene poeng.
+   - Klikk på cookien og defeat den for å tjene poeng.
 
 3. **Poengtavle**:
    - Se hvordan du rangerer sammenlignet med andre spillere.
