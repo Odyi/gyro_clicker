@@ -1,6 +1,6 @@
 # Gyro Cookie Clicker
 
-Gyro Cookie Clicker er et klikkespill der spilleren tjener poeng ved å klikke på en "gyro-cookie". Spillet inkluderer en poengtavle, chat-funksjon og muligheten til å sende inn poeng.
+Gyro Cookie Clicker er et klikkespill med en twist der spilleren tjener poeng ved å klikke og defeate en "gyro-cookie". Spillet inkluderer en poengtavle, chat-funksjon og muligheten til å lagre poeng i et leaderboard.
 
 ## Innhold
 1. [Introduksjon](#introduksjon)
