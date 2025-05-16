@@ -18,6 +18,7 @@
             <a href="{{ url_for('register') }}">Register</a>
         {% endif %}
     </nav>
+
     <div class="container">
         <h1>Gyro Clicker</h1>
         <div id="gyro-game">
@@ -27,17 +28,17 @@
             <p id="cookieHealth">Health: 100%</p>
             <button id="upgrade1" class="upgrade" data-cost="50" data-info="Increased click power">Upgrade 1: 50$</button>
             <button id="upgrade2" class="upgrade" data-cost="100" data-info="Auto-clicker">Upgrade 2: 100$</button>
+            <br><br>
+            <button id="submitScore">Submit Score</button>
         </div>
-        <form id="score-form" action="{{ url_for('submit_score') }}" method="post">
-            <input type="hidden" name="score" id="score-input">
-            <button type="submit">Submit Score</button>
-        </form>
+
         <div>
             {% if 'username' in session %}
                 <p>Welcome, {{ session['username'] }}!</p>
             {% endif %}
         </div>
     </div>
+
     <script src="{{ url_for('static', filename='js/game.js') }}"></script>
 </body>
 </html>

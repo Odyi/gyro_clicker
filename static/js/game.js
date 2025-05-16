@@ -7,9 +7,9 @@ let cookieHealth = 100;
 function updateCookieHealth() {
     cookieHealth -= clickPower;
     if (cookieHealth <= 0) {
-        cookieHealth = 100; // Reset cookie health
-        money += 50; // Increase money
-        score++; // Increase score
+        cookieHealth = 100;
+        money += 50;
+        score++;
         document.getElementById('money').innerText = 'Money: ' + money;
         updateCookieImage();
     }
@@ -29,7 +29,6 @@ function updateCookieImage() {
     }
 }
 
-// Function to create particle effects
 function createParticleEffect(x, y) {
     const particle = document.createElement('div');
     particle.classList.add('particle');
@@ -37,38 +36,31 @@ function createParticleEffect(x, y) {
     particle.style.top = `${y}px`;
     document.body.appendChild(particle);
 
-    // Remove particle after animation
     setTimeout(() => {
         particle.remove();
     }, 1000);
 }
 
-// Function to play Minecraft sound
 function playMinecraftSound() {
     const sound = new Audio('static/minecraft_eat.mp3');
     sound.play();
 }
 
-// Add click event listener to the gyro
-document.getElementById('gyro').addEventListener('click', function(event) {
+document.getElementById('gyro').addEventListener('click', function (event) {
     updateCookieHealth();
     document.getElementById('score').innerText = 'Score: ' + score;
     updateCookieImage();
-
-    // Trigger particle effect at click position
     createParticleEffect(event.clientX, event.clientY);
-
-    // Play Minecraft sound
     playMinecraftSound();
 });
 
-setInterval(function() {
+setInterval(function () {
     if (autoClickPower > 0) {
         cookieHealth -= autoClickPower;
         if (cookieHealth <= 0) {
-            cookieHealth = 100; // Reset cookie health
-            money += 10; // Increase money
-            score++; // Increase score
+            cookieHealth = 100;
+            money += 10;
+            score++;
             document.getElementById('money').innerText = 'Money: ' + money;
             updateCookieImage();
         }
@@ -76,8 +68,7 @@ setInterval(function() {
     }
 }, 1000);
 
-// Implementing upgrades
-document.getElementById('upgrade1').addEventListener('click', function() {
+document.getElementById('upgrade1').addEventListener('click', function () {
     if (money >= 50) {
         money -= 50;
         clickPower += 1;
@@ -88,7 +79,7 @@ document.getElementById('upgrade1').addEventListener('click', function() {
     }
 });
 
-document.getElementById('upgrade2').addEventListener('click', function() {
+document.getElementById('upgrade2').addEventListener('click', function () {
     if (money >= 100) {
         money -= 100;
         autoClickPower += 1;
@@ -97,4 +88,29 @@ document.getElementById('upgrade2').addEventListener('click', function() {
     } else {
         alert('Not enough money to purchase upgrade.');
     }
+});
+
+// ✅ Securely submit score via fetch
+document.getElementById('submitScore').addEventListener('click', function () {
+    fetch('/submit_score', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ score: score })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Score submitted!");
+            window.location.href = "/leaderboard";
+        } else {
+            response.json().then(data => {
+                alert("Failed to submit score: " + (data.error || "Unknown error"));
+            });
+        }
+    })
+    .catch(err => {
+        alert("Error submitting score.");
+        console.error(err);
+    });
 });
