@@ -26,34 +26,39 @@ Prosjektet består av følgende komponenter:
 ```
 GYRO_CLICKER/
 │
-├── static/                # Mappen for statiske filer som CSS, bilder og JavaScript
-│   ├── css/               # CSS-filer for styling
-│   │   └── styles.css     # Hovedstilark for prosjektet
+├── static/                    # Statiske filer (CSS, JS, Bilder)
+│   ├── css/                   # CSS-filer for styling
+│   │   └── styles.css         # Hovedstilark for prosjektet
 │   │
-│   ├── images/            # Bilder og ikoner brukt i spillet
-│   │   ├── criticalhpgyro.svg  # SVG-bilde for kritisk HP
-│   │   ├── gyro.svg           # SVG-bilde for gyro-cookie
-│   │   ├── gyrofirstbite.svg  # SVG-bilde for første bite av gyro
-│   │   ├── gyroyum.png        # PNG-bilde for en "yum"-effekt
-│   │   ├── halfgyro.svg       # SVG-bilde for halv gyro
-│   │   └── lowhpgyro.svg      # SVG-bilde for lav HP
+│   ├── images/                # Bilder og ikoner brukt i spillet
+│   │   ├── criticalhpgyro.svg     # SVG-bilde for kritisk HP
+│   │   ├── gyro.svg               # SVG-bilde for gyro-cookie
+│   │   ├── gyrofirstbite.svg      # SVG-bilde for første bite av gyro
+│   │   ├── gyroyum.png            # PNG-bilde for "yum"-effekt
+│   │   ├── halfgyro.svg           # SVG-bilde for halv gyro
+│   │   └── lowhpgyro.svg          # SVG-bilde for lav HP
 │   │
-│   ├── js/                # JavaScript-filer for spilllogikk
-│   │   ├── game.js        # Hoved-JavaScript-fil for spillfunksjonalitet
-│   │   └── minecraft_eat.mp3  # Lydfil for en spiseeffekt
+│   ├── js/                    # JavaScript-filer for spilllogikk
+│   │   ├── game.js                # Hoved-JavaScript-fil for spillfunksjonalitet
+│   │   └── minecraft_eat.mp3      # Lydfil for spiseeffekt
 │
-├── templates/             # Mappen for HTML-maler brukt av Flask
-│   ├── chat.html          # HTML-mal for chat-siden
-│   ├── index.html         # HTML-mal for hovedsiden
-│   ├── leaderboard.html   # HTML-mal for poengtavle
-│   ├── login.html         # HTML-mal for innlogging
-│   ├── logout.html        # HTML-mal for utlogging
-│   └── register.html      # HTML-mal for registrering
+├── templates/                 # HTML-maler brukt av Flask
+│   ├── chat.html
+│   ├── index.html
+│   ├── leaderboard.html
+│   ├── login.html
+│   ├── logout.html
+│   └── register.html
 │
-├── app.py                 # Hovedfil for Flask-applikasjonen
-├── gyro_clicker.db        # SQLite-database for brukere, poeng og meldinger
-├── requirements.txt       # Liste over nødvendige Python-avhengigheter
-└── .gitattributes         # Git-konfigurasjon for spesifikke filtyper
+├── .gitattributes             # Git-konfigurasjon for filtyper
+├── .gitignore                 # Hvilke filer/git skal ignorere (f.eks. hidden.env, *.db)
+├── app.py                     # Hovedfil for Flask-applikasjonen
+├── backup.db                  # Backup av database (SQLite)
+├── gyro_clicker.db            # SQLite-database for brukere, poeng og meldinger
+├── hidden.env                 # Dine miljøvariabler (skal være i .gitignore)
+├── mariadbneeds.bash          # Bash-script for MariaDB
+├── README.md                  # Prosjektbeskrivelse
+└── requirements.txt           # Python-avhengigheter
 ```
 
 ---
