@@ -2,19 +2,27 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 from werkzeug.security import generate_password_hash, check_password_hash
 import mysql.connector
 from mysql.connector import Error
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Nødvendig for å bruke sessions
 
+# Last inn variabler fra .env-filen
+load_dotenv('hidden.env')
+
 # Funksjon for å koble til MySQL-databasen
 def get_db_connection():
     return mysql.connector.connect(
-        host='10.2.2.229',
-        port=3306,
-        user='user',
-        password='brukerpassord',
-        database='gyro_clicker'
+        host=os.getenv('DB_HOST'),
+        port=int(os.getenv('DB_PORT')),
+        user=os.getenv('DB_USER'),
+        password=os.getenv('DB_PASSWORD'),
+        database=os.getenv('DB_NAME')
     )
+
+# her skal sjekke passord funksjonen være
+
 
 # Hjemmesiden
 @app.route('/')
@@ -51,6 +59,8 @@ def register():
         username = request.form['username']
         password = request.form['password']
 
+        # 
+        
         # Lag hash av passordet før det lagres
         hashed_password = generate_password_hash(password)
 
@@ -137,4 +147,4 @@ def chat():
 
 # Start Flask-serveren
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0") 

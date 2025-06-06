@@ -55,11 +55,12 @@ function createParticleEffect(x, y) {
 }
 
 // -------------------------------------------------
-//  Spiller en lyd når du klikker på gyroen
+//  Spiller en lyd når du klikker på gyroen / SKAL OPPDATERES FOR EKSAMEN
 // -------------------------------------------------
 function playMinecraftSound() {
     const sound = new Audio('static/minecraft_eat.mp3');
     sound.play();
+    
 }
 
 // -------------------------------------------------
@@ -142,3 +143,9 @@ document.getElementById('submitScore').addEventListener('click', function () {
         console.error(err);
     });
 });
+
+
+// -------------------------------------------------
+//  Starten på krav til sterkere passord ved registrering jobba litt med det men ville fikse det til eksamen/ MULIGENS Å FIKSE VIA JAVASCRIPT MEN TENKER ¨GJØRE DET I PYTHON OG HTML
+// -------------------------------------------------
+
